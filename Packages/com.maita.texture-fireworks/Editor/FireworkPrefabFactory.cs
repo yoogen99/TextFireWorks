@@ -1,6 +1,8 @@
 using System;
 using System.Collections.Generic;
 using System.IO;
+using UdonSharp;
+using UdonSharp.Compiler;
 using UdonSharpEditor;
 using UnityEditor;
 using UnityEngine;
@@ -17,6 +19,11 @@ namespace TextureFireWorks.Editor
             settings.Validate();
             if (points == null || points.Count == 0 || points.Count > settings.maxPoints)
                 throw new ArgumentException("プレビューを生成してから保存してください。");
+            UdonSharpCompilerV1.CompileSync();
+            var launcherProgram = UdonSharpProgramAsset.GetProgramAssetForClass(typeof(FireworkLauncher));
+            var buttonProgram = UdonSharpProgramAsset.GetProgramAssetForClass(typeof(FireworkButton));
+            if (launcherProgram == null || buttonProgram == null || launcherProgram.GetRealProgram() == null || buttonProgram.GetRealProgram() == null)
+                throw new InvalidOperationException("UdonSharpの変換が完了していません。Consoleのコンパイルエラーを解消してから再生成してください。");
             string parent = Path.GetDirectoryName(requestedPath).Replace('\\', '/');
             string stem = Path.GetFileNameWithoutExtension(requestedPath);
             string folder = AssetDatabase.GenerateUniqueAssetPath(parent + "/" + stem);

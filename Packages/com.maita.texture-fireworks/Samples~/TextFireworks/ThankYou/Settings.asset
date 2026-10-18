@@ -1,0 +1,30 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9cd33725e08e4374b77ea166c988484b, type: 3}
+  m_Name: Settings
+  m_EditorClassIdentifier: 
+  message: "\u3042\u308A\u304C\u3068\u3046\uFF01"
+  font: {fileID: 0}
+  characterSize: 1.8
+  lineSpacing: 15
+  density: 0.45
+  maxPoints: 8000
+  color: {r: 1, g: 0.55, b: 0.12, a: 1}
+  sparkSize: 0.065
+  launchHeight: 15
+  ascentDuration: 2
+  spreadDuration: 1.2
+  holdDuration: 2
+  fadeDuration: 2
+  gravity: 1.5
+  ascentClip: {fileID: 0}
+  burstClip: {fileID: 0}

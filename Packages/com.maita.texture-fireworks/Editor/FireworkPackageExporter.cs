@@ -15,6 +15,16 @@ namespace TextureFireWorks.Editor
     {
         public const string PackageRoot = "Packages/com.maita.texture-fireworks";
 
+        public static string SourceRoot
+        {
+            get
+            {
+                string sourcePath = AssetDatabase.GUIDToAssetPath("6a697c94df9a447d981c211bb524ed12");
+                if (string.IsNullOrEmpty(sourcePath)) throw new InvalidOperationException("パッケージのソースを見つけられませんでした。");
+                return sourcePath.Substring(0, sourcePath.LastIndexOf("/Runtime/", StringComparison.Ordinal));
+            }
+        }
+
         [MenuItem("Tools/TextureFireWorks/導入用unitypackageを書き出す")]
         private static void ExportMenu()
         {
@@ -33,9 +43,7 @@ namespace TextureFireWorks.Editor
         public static void Export(string output, string selectedPrefab = null)
         {
             AssetDatabase.SaveAssets();
-            string sourcePath = AssetDatabase.GUIDToAssetPath("6a697c94df9a447d981c211bb524ed12");
-            if (string.IsNullOrEmpty(sourcePath)) throw new InvalidOperationException("パッケージのソースを見つけられませんでした。");
-            string sourceRoot = sourcePath.Substring(0, sourcePath.LastIndexOf("/Runtime/", StringComparison.Ordinal));
+            string sourceRoot = SourceRoot;
             string resolvedRoot = sourceRoot.StartsWith("Packages/", StringComparison.Ordinal)
                 ? UnityEditor.PackageManager.PackageInfo.FindForAssetPath(sourceRoot).resolvedPath : Path.GetFullPath(sourceRoot);
             var files = new SortedDictionary<string, string>(StringComparer.Ordinal);

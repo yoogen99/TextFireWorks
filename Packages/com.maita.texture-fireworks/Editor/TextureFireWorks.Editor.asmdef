@@ -1,0 +1,6 @@
+{
+  "name": "TextureFireWorks.Editor",
+  "references": ["TextureFireWorks.Runtime", "Unity.TextMeshPro", "UdonSharp.Runtime", "UdonSharp.Editor", "VRC.Udon", "VRC.Udon.Editor", "VRC.SDK3"],
+  "includePlatforms": ["Editor"],
+  "autoReferenced": true
+}

@@ -1,0 +1,10 @@
+.validation/
+artifacts/
+**/Library/
+**/Temp/
+**/Logs/
+**/obj/
+.vs/
+*.csproj
+*.sln
+*.user

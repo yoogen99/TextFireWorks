@@ -1,4 +1,4 @@
-# TextureFireWorks
+# TextFireWorks
 
 Unityで文章を入力し、VRChatの夜空へ打ち上げる文字花火を作るエディターです。
 上昇する光と尾から、文字型の火花が広がり、少し残って落下・消失します。
